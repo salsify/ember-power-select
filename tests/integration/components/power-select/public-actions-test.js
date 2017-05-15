@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { clickTrigger, typeInSearch } from '../../../helpers/ember-power-select';
+import { clickTrigger, typeInSearch, triggerScroll } from '../../../helpers/ember-power-select';
 import { numbers } from '../constants';
 import { find, findAll, click, keyEvent, focus } from 'ember-native-dom-helpers';
 
@@ -554,6 +554,24 @@ test('if `oninput` action of multiple selects returns false the search is cancel
   assert.equal(findAll('.ember-power-select-option').length, 20, 'There is the same options than before');
 });
 
+test('The `onscroll` action of single selects action receives the public API and the event', async function(assert) {
+  assert.expect(22);
+
+  this.numbers = numbers;
+  this.handleScroll = (select, e) => {
+    assertPublicAPIShape(assert, select);
+    assert.ok(e instanceof window.Event, 'The second argument is an event');
+  };
+
+  this.render(hbs`
+    {{#power-select initiallyOpened=true options=numbers onscroll=handleScroll onchange=(action (mut foo)) as |number|}}
+      {{number}}
+    {{/power-select}}
+  `);
+
+  await triggerScroll(0, 20);
+});
+
 test('the `highlight` action of the public api passed to the public actions works as expected', function(assert) {
   assert.expect(2);
   this.options = ['foo', 'bar', 'baz'];
@@ -692,4 +710,3 @@ test('The given `scrollTo` function is invoken when a multiple select wants to s
 
   run(() => this.selectAPI.actions.scrollTo('three'));
 });
-
