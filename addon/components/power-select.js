@@ -374,6 +374,13 @@ export default Component.extend({
       }
     },
 
+    onScroll(event) {
+      let action = this.get('onscroll');
+      if (action) {
+        action(this.get('publicAPI'), event);
+      }
+    },
+
     activate() {
       scheduleOnce('actions', this, 'setIsActive', true);
     },
