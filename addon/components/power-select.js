@@ -374,6 +374,15 @@ export default Component.extend({
       }
     },
 
+    onScroll(event) {
+      let action = this.get('onscroll');
+      let throttle = 100;
+
+      if (action) {
+        Ember.run.throttle(null, action, this.get('publicAPI'), event, throttle, false);
+      }
+    },
+
     activate() {
       scheduleOnce('actions', this, 'setIsActive', true);
     },
