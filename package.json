@@ -1,5 +1,5 @@
 {
-  "name": "ember-power-select",
+  "name": "@salsify/ember-power-select",
   "version": "1.8.4",
   "description": "The extensible select component built for ember",
   "homepage": "http://www.ember-power-select.com",
@@ -13,10 +13,7 @@
     "test": "ember try:each",
     "nodetest": "mocha node-tests --recursive"
   },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/cibernox/ember-power-select.git"
-  },
+  "repository": "salsify/ember-power-select",
   "engines": {
     "node": ">= 4.0.0"
   },
