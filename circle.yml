@@ -14,7 +14,6 @@ dependencies:
     - curl -u ${ARTIFACTORY_CREDENTIALS} https://npm.salsify.com/api/npm/npm-local/auth/salsify >> ~/.npmrc
   override:
     - yarn install
-    - bower install
   cache_directories:
     - ~/.cache/yarn
 
