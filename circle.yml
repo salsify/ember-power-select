@@ -23,5 +23,6 @@ test:
     - mkdir tmp/test-output
     - touch tmp/test-output/test.txt
     - cp -R tmp/test-output test-folder
+    - printenv
+    - cp -R tmp/test-output $CIRCLE_TEST_REPORTS
     - cp -R tmp/test-output ${CIRCLE_TEST_REPORTS}
-    - cp -R tmp/test-output/* ${CIRCLE_TEST_REPORTS}
