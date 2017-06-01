@@ -19,4 +19,6 @@ dependencies:
 
 test:
   post:
+    - mkdir tmp
+    - mkdir tmp/test-output
     - cp -R tmp/test-output/* ${CIRCLE_TEST_REPORTS}
