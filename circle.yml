@@ -19,6 +19,4 @@ dependencies:
 
 test:
   post:
-    - ls
-    - printenv
     - cp -R test-output/* ${CIRCLE_TEST_REPORTS}
