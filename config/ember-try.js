@@ -1,5 +1,6 @@
 /* eslint-env node */
 module.exports = {
+  command: 'ember test --reporter xunit --skip-cleanup=true',
   scenarios: [
     {
       name: 'ember-lts-2.4',
