@@ -397,6 +397,21 @@ test('returning false from the `onopen` action prevents the multiple select from
   assert.notOk(find('.ember-power-select-dropdown'), 'Dropdown didn\'t open');
 });
 
+test('the `oninit` action is invoked when the component is rendered', function(assert) {
+  assert.expect(21);
+
+  this.numbers = numbers;
+  this.handleInit = (select) => {
+    assertPublicAPIShape(assert, select);
+  };
+
+  this.render(hbs`
+    {{#power-select options=numbers onchange=(action (mut foo)) oninit=handleInit as |option|}}
+      {{option}}
+    {{/power-select}}
+  `);
+});
+
 test('the `onclose` action is invoked just before the dropdown closes', function(assert) {
   assert.expect(24);
 

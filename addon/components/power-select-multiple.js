@@ -3,6 +3,7 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 import layout from '../templates/components/power-select-multiple';
 import fallbackIfUndefined from '../utils/computed-fallback-if-undefined';
+import { scheduleOnce } from 'ember-runloop';
 
 const { isEqual } = Ember;
 
@@ -41,8 +42,21 @@ export default Component.extend({
     }
   }),
 
+  // Lifecycle hooks
+  init() {
+    this._super(...arguments);
+    scheduleOnce('afterRender', this, this.send, 'handleInit');
+  },
+
   // Actions
   actions: {
+    handleInit() {
+      let action = this.get('oninit');
+      if (action) {
+        action(this.get('publicAPI'));
+      }
+    },
+
     handleOpen(select, e) {
       let action = this.get('onopen');
       if (action && action(select, e) === false) {
