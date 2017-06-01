@@ -21,4 +21,4 @@ test:
   post:
     - ls
     - printenv
-    - cp -R my-tmp-dir/test-output/* ${CIRCLE_TEST_REPORTS}
+    - cp -R test-output/* ${CIRCLE_TEST_REPORTS}
