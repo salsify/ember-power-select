@@ -10,7 +10,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each",
+    "test": "ember try:one ember-default",
     "nodetest": "mocha node-tests --recursive"
   },
   "repository": "salsify/ember-power-select",
