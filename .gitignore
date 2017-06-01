@@ -4,6 +4,7 @@
 /dist
 /fastboot-dist
 /tmp
+/test-output
 
 # dependencies
 /node_modules
