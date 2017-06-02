@@ -43,6 +43,13 @@ export default Component.extend({
 
   // Actions
   actions: {
+    handleInit(select) {
+      let action = this.get('oninit');
+      if (action) {
+        action(select);
+      }
+    },
+
     handleOpen(select, e) {
       let action = this.get('onopen');
       if (action && action(select, e) === false) {

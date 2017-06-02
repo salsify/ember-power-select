@@ -108,6 +108,7 @@ export default Component.extend({
       scrollTo: (...args) => scheduleOnce('afterRender', this, this.send, 'scrollTo', ...args)
     };
     assert('{{power-select}} requires an `onchange` function', this.get('onchange') && typeof this.get('onchange') === 'function');
+    scheduleOnce('afterRender', this, this.send, 'onInit');
   },
 
   willDestroy() {
@@ -206,6 +207,13 @@ export default Component.extend({
       let action = this.get('registerAPI');
       if (action) {
         action(publicAPI);
+      }
+    },
+
+    onInit() {
+      let action = this.get('oninit');
+      if (action) {
+        action(this.get('publicAPI'));
       }
     },
 
