@@ -572,6 +572,24 @@ test('The `onscroll` action of single selects action receives the public API and
   await triggerScroll(0, 20);
 });
 
+test('The `onscroll` action of multiple selects action receives the public API and the event', async function(assert) {
+  assert.expect(22);
+
+  this.numbers = numbers;
+  this.handleScroll = (select, e) => {
+    assertPublicAPIShape(assert, select);
+    assert.ok(e instanceof window.Event, 'The second argument is an event');
+  };
+
+  this.render(hbs`
+    {{#power-select-multiple initiallyOpened=true options=numbers onscroll=handleScroll onchange=(action (mut foo)) as |number|}}
+      {{number}}
+    {{/power-select-multiple}}
+  `);
+
+  await triggerScroll(0, 20);
+});
+
 test('the `highlight` action of the public api passed to the public actions works as expected', function(assert) {
   assert.expect(2);
   this.options = ['foo', 'bar', 'baz'];
