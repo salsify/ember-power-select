@@ -29,7 +29,7 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember try:each",
+    "test": "ember test",
     "test:all": "ember try:each",
     "nodetest": "$(npm bin)/mocha node-tests --recursive"
   },
