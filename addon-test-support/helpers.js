@@ -1,6 +1,7 @@
 import { deprecate } from '@ember/debug';
 import { registerAsyncHelper } from '@ember/test';
 import { click, fillIn, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
+import { scrollTo } from 'ember-native-dom-helpers';
 import {
   selectChoose as _selectChoose,
   selectSearch as _selectSearch,
