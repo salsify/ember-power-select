@@ -28,7 +28,7 @@ export default Component.extend({
   isTouchDevice,
   layout,
   tagName: 'ul',
-  attributeBindings: ['role', 'aria-controls'],
+  attributeBindings: ['role', 'aria-controls', 'onScroll:onscroll'],
   role: 'listbox',
 
   // Lifecycle hooks

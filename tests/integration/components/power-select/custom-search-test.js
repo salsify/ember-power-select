@@ -5,7 +5,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, settled, click, waitFor } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { typeInSearch, clickTrigger } from 'ember-power-select/test-support/helpers';
+import { typeInSearch, clickTrigger } from '@salsify/ember-power-select/test-support/helpers';
 import { numbers, countries } from '../constants';
 import RSVP from 'rsvp';
 

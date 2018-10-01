@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { scheduleOnce } from '@ember/runloop';
+import { scheduleOnce, throttle } from '@ember/runloop';
 import { getOwner } from '@ember/application';
 import { isEqual } from '@ember/utils';
 import { get, set } from '@ember/object';
@@ -394,6 +394,13 @@ export default Component.extend({
       let action = this.get('onblur');
       if (action) {
         action(this.get('publicAPI'), event);
+      }
+    },
+
+    onScroll(event) {
+      let action = this.get('onscroll');
+      if (action) {
+        throttle(null, action, this.get('publicAPI'), event, 100, false);
       }
     },
 

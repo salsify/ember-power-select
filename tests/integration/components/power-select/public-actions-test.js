@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, triggerKeyEvent, focus } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { clickTrigger, typeInSearch } from 'ember-power-select/test-support/helpers';
+import { clickTrigger, typeInSearch, triggerScroll } from '@salsify/ember-power-select/test-support/helpers';
 import { numbers } from '../constants';
 import { run } from '@ember/runloop';
 
@@ -564,6 +564,42 @@ module('Integration | Component | Ember Power Select (Public actions)', function
     assert.dom('.ember-power-select-option[aria-current="true"]').hasText('baz', 'The third option is highlighted');
   });
 
+  test('The `onscroll` action of single selects action receives the public API and the event', async function(assert) {
+    assert.expect(22);
+
+    this.numbers = numbers;
+    this.handleScroll = (select, e) => {
+      assertPublicAPIShape(assert, select);
+      assert.ok(e instanceof window.Event, 'The second argument is an event');
+    };
+
+    await render(hbs`
+      {{#power-select initiallyOpened=true options=numbers onscroll=handleScroll onchange=(action (mut foo)) as |number|}}
+        {{number}}
+      {{/power-select}}
+    `);
+
+    await triggerScroll(0, 20);
+  });
+
+  test('The `onscroll` action of multiple selects action receives the public API and the event', async function(assert) {
+    assert.expect(22);
+
+    this.numbers = numbers;
+    this.handleScroll = (select, e) => {
+      assertPublicAPIShape(assert, select);
+      assert.ok(e instanceof window.Event, 'The second argument is an event');
+    };
+
+    await render(hbs`
+      {{#power-select-multiple initiallyOpened=true options=numbers onscroll=handleScroll onchange=(action (mut foo)) as |number|}}
+        {{number}}
+      {{/power-select-multiple}}
+    `);
+
+    await triggerScroll(0, 20);
+  });
+
   test('The programmer can use the received public API to perform searches in single selects', async function(assert) {
     assert.expect(2);
 
@@ -687,4 +723,3 @@ module('Integration | Component | Ember Power Select (Public actions)', function
     run(() => this.selectAPI.actions.scrollTo('three'));
   });
 });
-

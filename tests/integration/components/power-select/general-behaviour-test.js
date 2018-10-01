@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, triggerKeyEvent, triggerEvent, focus, settled, waitFor } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { typeInSearch, clickTrigger, findContains } from 'ember-power-select/test-support/helpers';
+import { typeInSearch, clickTrigger, findContains } from '@salsify/ember-power-select/test-support/helpers';
 import RSVP from 'rsvp';
 import EmberObject, { get } from '@ember/object';
 import { A } from '@ember/array';

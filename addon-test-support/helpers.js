@@ -1,6 +1,7 @@
 import { deprecate } from '@ember/debug';
 import { registerAsyncHelper } from '@ember/test';
 import { click, fillIn, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
+import { scrollTo } from 'ember-native-dom-helpers';
 import {
   selectChoose as _selectChoose,
   selectSearch as _selectSearch,
@@ -30,6 +31,11 @@ export async function nativeMouseUp(selectorOrDomElement, options) {
 
 export async function triggerKeydown(domElement, k) {
   return triggerKeyEvent(domElement, 'keydown', k);
+}
+
+export function triggerScroll(x = 0, y = 0) {
+  let selector = '.ember-power-select-options';
+  return scrollTo(selector, x, y);
 }
 
 export function typeInSearch(scopeOrText, text) {

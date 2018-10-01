@@ -1,6 +1,6 @@
 {
-  "name": "ember-power-select",
-  "version": "2.0.8",
+  "name": "@salsify/ember-power-select",
+  "version": "2.0.8-beta.0-0.3.1",
   "description": "The extensible select component built for ember",
   "keywords": [
     "ember-addon",
@@ -10,10 +10,7 @@
     "dropdown",
     "ember-power"
   ],
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/cibernox/ember-power-select.git"
-  },
+  "repository": "salsify/ember-power-select",
   "license": "MIT",
   "author": {
     "name": "Miguel Camba",
@@ -23,7 +20,6 @@
     "doc": "doc",
     "test": "tests"
   },
-  "homepage": "http://www.ember-power-select.com",
   "scripts": {
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
@@ -74,6 +70,7 @@
     "ember-href-to": "1.15.1",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-native-dom-helpers": "^0.6.2",
     "ember-qunit-assert-helpers": "^0.2.1",
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.4.0",

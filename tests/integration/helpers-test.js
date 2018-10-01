@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { numbers } from './components/constants';
-import { clickTrigger, typeInSearch, findContains } from 'ember-power-select/test-support/helpers';
+import { clickTrigger, typeInSearch, findContains } from '@salsify/ember-power-select/test-support/helpers';
 
 module('Integration | Helpers', function(hooks) {
   setupRenderingTest(hooks);
