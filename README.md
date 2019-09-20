@@ -1,5 +1,5 @@
-## :warning: Updates For [![Salsify]](https://www.salsify.com/hs-fs/hubfs/Logos/Salsify_Logos/Salsify_Logo_Horizontal_White-01.png?width=300&name=Salsify_Logo_Horizontal_White-01.png)
-- [onscroll](tests/dummy/app/templates/public-pages/docs/api-reference.hbs) option
+## :warning: Updates For Salsify ![Salsify Logo](https://www.salsify.com/hs-fs/hubfs/Logos/Salsify_Logos/Salsify_Logo_Horizontal_White-01.png?width=100&name=Salsify_Logo_Horizontal_White-01.png)
+- [onscroll](tests/dummy/app/templates/public-pages/docs/api-reference.hbs#L208-L212) option
 
 
 [![Build Status](https://travis-ci.org/cibernox/ember-power-select.svg?branch=master)](https://travis-ci.org/cibernox/ember-power-select)
