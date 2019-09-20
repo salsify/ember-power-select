@@ -92,7 +92,7 @@
           @optionsComponent={{Options}}
           @highlightOnHover={{this.highlightOnHover}}
           @groupComponent={{this.groupComponent}}
-          @onScroll=(action "onScroll")
+          @onScroll={{this.onScroll}}
           id={{this.optionsId}}
           class="ember-power-select-options" as |option term|>
           {{yield option term}}
