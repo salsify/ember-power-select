@@ -1,6 +1,6 @@
 import { layout, tagName } from "@ember-decorators/component";
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, action } from '@ember/object';
 import { scheduleOnce, throttle } from '@ember/runloop';
 import { getOwner } from '@ember/application';
 import { isEqual } from '@ember/utils';
@@ -357,7 +357,7 @@ export default @tagName('') @layout(templateLayout) class PowerSelect extends Co
     if (action) {
       throttle(null, action, this.get('publicAPI'), event, 100, false);
     }
-  },
+  }
 
   @action
   handleBlur(event) {
