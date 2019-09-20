@@ -27,8 +27,6 @@ if(typeof FastBoot === 'undefined'){
 
 export default @tagName('') @layout(templateLayout) class Options extends Component {
   isTouchDevice = isTouchDevice
-  //   tagName: 'ul',
-  //   role: 'listbox',
 
   @action
   addHandlers(element) {
