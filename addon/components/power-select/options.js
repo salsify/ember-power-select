@@ -27,14 +27,8 @@ if(typeof FastBoot === 'undefined'){
 
 export default @tagName('') @layout(templateLayout) class Options extends Component {
   isTouchDevice = isTouchDevice
-  attributeBindings = ['onScroll:onscroll'];
-//   isTouchDevice,
-//   layout,
-//   tagName: 'ul',
-//   attributeBindings: ['role', 'aria-controls', 'onScroll:onscroll'],
-
-// export default Component.extend({
-//   role: 'listbox',
+  //   tagName: 'ul',
+  //   role: 'listbox',
 
   @action
   addHandlers(element) {
@@ -56,6 +50,12 @@ export default @tagName('') @layout(templateLayout) class Options extends Compon
     element.addEventListener('mouseup', (e) => findOptionAndPerform(this.select.actions.choose, e));
     if (this.highlightOnHover) {
       element.addEventListener('mouseover', (e) => findOptionAndPerform(this.select.actions.highlight, e));
+    }
+    // Added by ✽ Salsify
+    if (this.onScroll) {
+      element.addEventListener('scroll', (e) => {
+        this.onScroll(e);
+      });
     }
     if (this.isTouchDevice) {
       let touchMoveHandler = () => {

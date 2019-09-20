@@ -352,10 +352,10 @@ export default @tagName('') @layout(templateLayout) class PowerSelect extends Co
   }
 
   @action
-  onScroll(event) {
-    let action = this.get('onscroll');
-    if (action) {
-      throttle(null, action, this.get('publicAPI'), event, 100, false);
+  handleFocus(event) {
+    this._activate();
+    if (this.onFocus) {
+      this.onFocus(this.publicAPI, event);
     }
   }
 
@@ -369,6 +369,14 @@ export default @tagName('') @layout(templateLayout) class PowerSelect extends Co
     }
   }
 
+  @action
+  onScroll(event) {
+    // Renamed local variable - see https://github.com/emberjs/ember.js/issues/18047
+    let onscroll = this.get('onscroll');
+    if (onscroll) {
+      throttle(null, onscroll, this.get('publicAPI'), event, 100, false);
+    }
+  }
 
   // Tasks
   @(task(function* (e) {

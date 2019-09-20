@@ -11,7 +11,7 @@ import { numbers, names, countries } from '../constants';
 import PromiseProxyMixin from '@ember/object/promise-proxy-mixin';
 import ArrayProxy from '@ember/array/proxy';
 import ObjectProxy from '@ember/object/proxy';
-import PowerSelect from 'ember-power-select/components/power-select';
+import PowerSelect from '@salsify/ember-power-select/components/power-select';
 
 const PromiseArrayProxy = ArrayProxy.extend(PromiseProxyMixin);
 const PromiseObject = ObjectProxy.extend(PromiseProxyMixin);
